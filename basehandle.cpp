@@ -1,4 +1,4 @@
-#include "valveImpl.h"
+#include "sdk.h"
 
 void CBaseHandle::Init(int entry, int serialNumber) { m_Index = entry | (serialNumber << NUM_SERIAL_NUM_SHIFT_BITS); }
 

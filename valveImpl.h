@@ -1,19 +1,6 @@
 #pragma once
-#include "sdk.h"
+//#include "sdk.h"
 
-#include "bbox.h"
-#include "basehandle.h"
-#include "CSchemaSystem.h"
-#include "CSchemaManager.h"
-#include "centityinstance.h"
-#include "c_baseentity.h"
-#include "cgameentitysystem.h"
-#include "cgameresourceservice.h"
-#include "cengineclient.h"
-#include "cacheent.h"
-
-#include "cheat.h"
-#include "hooks.h"
 
 
 namespace valve {

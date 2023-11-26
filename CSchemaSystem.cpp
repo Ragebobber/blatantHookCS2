@@ -1,4 +1,4 @@
-#include "valveImpl.h"
+#include "sdk.h"
 
 CSchemaSystemTypeScope* CSchemaSystem::FindTypeScopeForModule(const char* name)
 {

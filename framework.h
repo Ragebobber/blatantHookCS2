@@ -9,6 +9,9 @@
 #include <unordered_map>
 #include <array>
 #include <limits>
+#include <map>
+#include <utility>
+#include <typeinfo>
 
 #include <dxgi.h>
 #include <d3d11.h>
