@@ -207,6 +207,9 @@
     <ClInclude Include="bbox.h">
       <Filter>Файлы заголовков\valve</Filter>
     </ClInclude>
+    <ClInclude Include="interfaceFactory.h">
+      <Filter>Файлы заголовков\sdk</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -319,6 +322,9 @@
     </ClCompile>
     <ClCompile Include="CEngineClient.cpp">
       <Filter>Исходные файлы\valve\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="interfaceFactory.cpp">
+      <Filter>Исходные файлы\sdk</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

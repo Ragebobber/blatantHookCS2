@@ -1,4 +1,4 @@
-#include "valveImpl.h"
+#include "sdk.h"
 
 CGameResourceService*	I::gResourceService;
 CGameEntitySystem*		I::gEntitySystem;

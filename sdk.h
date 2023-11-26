@@ -16,9 +16,24 @@
 #include "drawer.h"
 #include "math.h"
 #include "classPointers.h" 
+
+#include "bbox.h"
+#include "basehandle.h"
+#include "CSchemaSystem.h"
+#include "CSchemaManager.h"
+#include "centityinstance.h"
+#include "c_baseentity.h"
+#include "cgameentitysystem.h"
+#include "cgameresourceservice.h"
+#include "cengineclient.h"
+#include "cacheent.h"
+
+#include "cheat.h"
+#include "hooks.h"
+
+#include "interfaceFactory.h"
+
 #include "valveImpl.h"
-//#include "cheat.h"
-//#include "hooks.h"
 #include "sdkInit.h"
 #include "sdkImpl.h"
 

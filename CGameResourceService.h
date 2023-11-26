@@ -3,8 +3,9 @@
 class CGameResourceManifest;
 class CCompressedResourceManifest;
 
-struct CGameResourceService
+class CGameResourceService
 {
+public:
 	//size 44
 	virtual bool Connect(void* (__cdecl* a2)(const char*, int*)) = 0;
 	virtual __int64 Disconnect() = 0;
@@ -51,7 +52,7 @@ struct CGameResourceService
 	virtual void BuildCompressedManifest(__int64 a2,CCompressedResourceManifest* a3,char a4) = 0;
 	virtual __int64 LockGameResourceManifest(char a2, __int64 a3) = 0;
 	virtual char AppendToAndCreateGameResourceManifest(__int64 a2,unsigned int a3,int a4,__int64 a5,__int64 a6) = 0;// #STR: "CGameResourceService::BuildResourceManifest(finish)", "CGameResourceService::BuildResourceManifest(start)"
-
+public:
 	CGameEntitySystem* GetGameEntitySystem() {
 		return *reinterpret_cast<CGameEntitySystem**>((uintptr_t)(this) + 0x58);
 	}

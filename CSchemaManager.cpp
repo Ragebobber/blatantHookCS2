@@ -1,4 +1,4 @@
-#include "valveImpl.h"
+#include "sdk.h"
 
 
 int32_t CSchemaManager::GetSchemaOffsetInternal(const char* moduleName, const char* bindingName, const char* fieldName)
