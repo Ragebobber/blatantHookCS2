@@ -1,9 +1,12 @@
 #include "sdk.h"
 
+/*
+26.12.2023 change 144->145
+*/
 bool C_BaseEntity::IsBasePlayerController()
 {
 	using OriginalFn = bool(__thiscall*)(void*);
-	return sdk::helpers->GetVFunc<OriginalFn>(this, 144)(this);
+	return sdk::helpers->GetVFunc<OriginalFn>(this, 145)(this);
 }
 
 bool C_BaseEntity::CalculateBBoxByCollision(bbox_t& out)
