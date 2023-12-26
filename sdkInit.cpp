@@ -11,11 +11,10 @@ Init::~Init()
 
 void Init::startService()
 {
-
-	if (!sdk::factory->initializeInterfaces())
+	if (!sdk::factory->initializePointers())
 		return;
 
-	if (!sdk::factory->initializePointers())
+	if (!sdk::factory->initializeInterfaces())
 		return;
 
 	if (!sdk::factory->initializeHooks())

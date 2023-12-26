@@ -210,6 +210,12 @@
     <ClInclude Include="interfaceFactory.h">
       <Filter>Файлы заголовков\sdk</Filter>
     </ClInclude>
+    <ClInclude Include="CSGOInput.h">
+      <Filter>Файлы заголовков\valve\classes\client</Filter>
+    </ClInclude>
+    <ClInclude Include="CUserCmd.h">
+      <Filter>Файлы заголовков\valve\classes\client</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -325,6 +331,12 @@
     </ClCompile>
     <ClCompile Include="interfaceFactory.cpp">
       <Filter>Исходные файлы\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="hkCreateMove.cpp">
+      <Filter>Исходные файлы\hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="CSGOInput.cpp">
+      <Filter>Исходные файлы\valve\client</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

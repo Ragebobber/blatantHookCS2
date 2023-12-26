@@ -152,6 +152,8 @@
     <ClInclude Include="classPointers.h" />
     <ClInclude Include="CSchemaManager.h" />
     <ClInclude Include="CSchemaSystem.h" />
+    <ClInclude Include="CSGOInput.h" />
+    <ClInclude Include="CUserCmd.h" />
     <ClInclude Include="C_BaseEntity.h" />
     <ClInclude Include="drawer.h" />
     <ClInclude Include="framework.h" />
@@ -197,9 +199,11 @@
     <ClCompile Include="cheatImpl.cpp" />
     <ClCompile Include="CSchemaManager.cpp" />
     <ClCompile Include="CSchemaSystem.cpp" />
+    <ClCompile Include="CSGOInput.cpp" />
     <ClCompile Include="C_BaseEntity.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="helpers.cpp" />
+    <ClCompile Include="hkCreateMove.cpp" />
     <ClCompile Include="hkMatricesForView.cpp" />
     <ClCompile Include="hkOnAddEntity.cpp" />
     <ClCompile Include="hkOnRemoveEntity.cpp" />

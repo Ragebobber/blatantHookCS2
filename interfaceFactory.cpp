@@ -6,13 +6,15 @@ IFactory::IFactory()
        {INTERFACE_RESOURCE_SERVICE, {"engine2.dll", "GameResourceServiceClientV001"}},
        {INTERFACE_ENTITY_SYSTEM, {"engine2.dll", nullptr}},
        {INTERFACE_ENGINE_CLIENT, {"engine2.dll", "Source2EngineToClient001"}},
-       {INTERFACE_SCHEMA_SYSTEM, {"schemasystem.dll", "SchemaSystem_001"}}
+       {INTERFACE_SCHEMA_SYSTEM, {"schemasystem.dll", "SchemaSystem_001"}},
+       {INTERFACE_CSGOINPUT,{}},
     };
     
     poinetObjects = {
         {POINER_GET_MATRIX_FOR_VIEW,{"client.dll", "40 53 48 81 EC ? ? ? ? 49 8B C1"}},
         {POINTER_GET_ENT_BY_INDEX,{"client.dll", "81 FA ? ? ? ? 77 36"}},
-        {POINTER_GET_MAX_ENT_INDEX,{"client.dll", "E8 ? ? ? ? 33 DB 39 5C 24 40"}}
+        {POINTER_GET_MAX_ENT_INDEX,{"client.dll", "E8 ? ? ? ? 33 DB 39 5C 24 40"}},
+		{POINTER_GET_CLIENT_INPUT,{"client.dll", "48 8B 0D ? ? ? ? 48 8B 01 FF 50 ? 8B DF"}}
     };
 
     hookObjects = {
@@ -20,6 +22,7 @@ IFactory::IFactory()
         {HOOK_ON_REMOVE_ENT},
         {HOOK_D3D11_PRESENT},
         {HOOK_MATRICES_FOR_VIEW},
+        {HOOK_CREATE_MOVE},
     };
 }
 
@@ -52,7 +55,12 @@ bool IFactory::initializeInterfaces()
                 I::gSchemaSystem = sdk::helpers->getInterface<CSchemaSystem>(entry.second.first, entry.second.second);
                 if (!I::gSchemaSystem)
                     return false;
-                break;              
+                break; 
+            case INTERFACE_CSGOINPUT:
+                I::gInput = *reinterpret_cast<CCSGOInput**>(sdk::pointers->pGetClientInput);
+                if (!I::gInput)
+                    return false;
+                break;
             default:
                 return false;
             }
@@ -77,6 +85,9 @@ bool IFactory::initializePointers()
                 break;
 			case POINTER_GET_MAX_ENT_INDEX:
                 sdk::pointers->pGetMaxEntIndex = data;
+                break;
+            case POINTER_GET_CLIENT_INPUT:
+                sdk::pointers->pGetClientInput = sdk::helpers->getAbsolute(data,3,7);
                 break;
             default:
                 return false;    
@@ -105,6 +116,9 @@ bool IFactory::initializeHooks()
             break;
         case HOOK_MATRICES_FOR_VIEW:
             hookStatus = MH_CreateHook(sdk::pointers->pGetMatricesForView, &hooks::hkMatricesForView, reinterpret_cast<LPVOID*>(&sdk::pointers->fpMatricesForView));
+            break;
+        case HOOK_CREATE_MOVE:
+            hookStatus = MH_CreateHook(sdk::helpers->GetVMethod(5, I::gInput),&hooks::hkCreateMove,reinterpret_cast<LPVOID*>(&sdk::pointers->fpCreateMove));
             break;
         default:
             return false;
