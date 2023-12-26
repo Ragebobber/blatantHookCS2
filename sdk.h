@@ -19,6 +19,7 @@
 
 #include "bbox.h"
 #include "basehandle.h"
+#include "CUserCmd.h"
 #include "CSchemaSystem.h"
 #include "CSchemaManager.h"
 #include "centityinstance.h"
@@ -27,6 +28,8 @@
 #include "cgameresourceservice.h"
 #include "cengineclient.h"
 #include "cacheent.h"
+#include "CSGOInput.h"
+
 
 #include "cheat.h"
 #include "hooks.h"

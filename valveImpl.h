@@ -13,5 +13,7 @@ namespace I {
 	extern CGameEntitySystem*		gEntitySystem;
 	extern CEngineClient*			gEngineClient;
 	extern CSchemaSystem*			gSchemaSystem;
+	extern CCSGOInput*				gInput;
+	extern CUserCmd*				gUserCmd;
 }
 
