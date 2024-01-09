@@ -67,6 +67,12 @@
     <Filter Include="Исходные файлы\valve\engine">
       <UniqueIdentifier>{2d1f129f-ae03-40b8-8c68-46343ee27732}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\localClasses">
+      <UniqueIdentifier>{daacd25d-a6c9-448c-be80-1b011c98d8fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\valve\localClasses">
+      <UniqueIdentifier>{8a1bfcb3-0568-43eb-82cf-26cee4496ff3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -216,6 +222,12 @@
     <ClInclude Include="CUserCmd.h">
       <Filter>Файлы заголовков\valve\classes\client</Filter>
     </ClInclude>
+    <ClInclude Include="CS2LocalPlayerController.h">
+      <Filter>Файлы заголовков\localClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="globals.h">
+      <Filter>Файлы заголовков\sdk</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -337,6 +349,9 @@
     </ClCompile>
     <ClCompile Include="CSGOInput.cpp">
       <Filter>Исходные файлы\valve\client</Filter>
+    </ClCompile>
+    <ClCompile Include="CS2LocalPlayerController.cpp">
+      <Filter>Исходные файлы\valve\localClasses</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

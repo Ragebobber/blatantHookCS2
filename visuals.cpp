@@ -41,7 +41,9 @@ void Visuals::drawPlayerEsp(CCSPlayerController* pPlayerController) {
 		return;
 
 	const auto pawn = reinterpret_cast<C_CSPlayerPawn*>(pPlayerController->m_hPawn().Get());
-	if (!pawn)
+	const auto localController = sdk::globals->localPlayerController;
+
+	if (!pawn || !localController)
 		return;
 
 	if (!pawn->CalculateBBoxByCollision(bbox))
@@ -50,13 +52,12 @@ void Visuals::drawPlayerEsp(CCSPlayerController* pPlayerController) {
 	if (pawn->m_pGameSceneNode()->m_bDormant())
 		return;
 
+	const bool isFriend = pawn->m_iTeamNum() == localController->getLocalTeam();
+	if (isFriend && !cheat::vars->visuals.bTeamEsp)
+		return;
 
 	const auto min = bbox.m_Mins;
 	const auto max = bbox.m_Maxs;
 
-	drawList->AddRect(
-		min - ImVec2{ 1.f, 1.f }, max + ImVec2{ 1.f, 1.f }, IM_COL32(0, 0, 0, 255));
-	drawList->AddRect(
-		min + ImVec2{ 1.f, 1.f }, max - ImVec2{ 1.f, 1.f }, IM_COL32(0, 0, 0, 255));
-	drawList->AddRect(min, max, IM_COL32(255, 0, 0, 255));
+	sdk::drawer->drawBox(min, max, cheat::vars->visuals.bTeamEsp && isFriend ? IM_COL32(0, 255, 0, 255) : IM_COL32(255, 0, 0, 255));
 }
