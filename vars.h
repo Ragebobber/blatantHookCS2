@@ -10,5 +10,6 @@ struct Vars
 	struct {
 		bool bEnable = false;
 		bool bEsp = false;
+		bool bTeamEsp = false;
 	} visuals;
 };

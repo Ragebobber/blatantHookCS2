@@ -51,7 +51,7 @@ public:
 	virtual void unk_41() = 0;
 	virtual void unk_42() = 0;
 	virtual void unk_43() = 0;
-	virtual void					GetSplitScreenPlayer(int* nSlot) = 0;
+	virtual void					GetSplitScreenPlayer(int &nSlot,int active) = 0;
 	virtual bool					IsSplitScreenActive() = 0;
 	virtual void unk_46() = 0;
 	virtual void unk_47() = 0;

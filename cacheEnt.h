@@ -24,7 +24,7 @@ public:
 	void cacheCurrentEntities();
     void onRemoveEntity(CEntityInstance* pInst, CBaseHandle handle);
 	void onAddEntity(CEntityInstance* pInst, CBaseHandle handle);
-
+    void getLocalPlayer(C_BaseEntity* pEntity, CBaseHandle handle);
     EEntityType getEntityType(C_BaseEntity* pEntity);
 
      auto& getEntities() { return gCachedEntities; }

@@ -46,4 +46,5 @@ void Menu::drawVisuals()
 	ImGui::Checkbox("Enable visuals", &cheat::vars->visuals.bEnable);
 	ImGui::Separator();
 	ImGui::Checkbox("Enable ESP", &cheat::vars->visuals.bEsp);
+	ImGui::Checkbox("Team ESP", &cheat::vars->visuals.bTeamEsp);
 }

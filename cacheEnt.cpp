@@ -35,6 +35,8 @@ void CacheEnt::onAddEntity(CEntityInstance* pInst, CBaseHandle handle)
 	if (!pEntity || handle.GetEntryIndex() > 0x3FFF)
 		return;
 
+	getLocalPlayer(pEntity, handle);
+
 	for (auto& it : gCachedEntities)
 	{
 		if (it.hEnt.GetEntryIndex() == handle.GetEntryIndex())
@@ -52,9 +54,21 @@ void CacheEnt::onAddEntity(CEntityInstance* pInst, CBaseHandle handle)
 		gCachedEntities.emplace_back(cachedEntity);
 }
 
+void CacheEnt::getLocalPlayer(C_BaseEntity* pEntity,CBaseHandle handle)
+{
+	if (!pEntity->IsBasePlayerController())
+		return;
+
+	if (handle.GetEntryIndex() != I::gEngineClient->GetLocalPlayerIndex())
+		return;
+
+	sdk::globals->localPlayerController = reinterpret_cast<CS2LocalPlayerController*>(pEntity);
+}
+
 EEntityType CacheEnt::getEntityType(C_BaseEntity* pEntity) {
-	if (pEntity->IsBasePlayerController())
+	if (pEntity->IsBasePlayerController()) 
 		return EEntityType::PLAYER_CONTROLLER;
+	
 	/*else if (pEntity->IsBasePlayerWeapon())
 		return EEntityType::BASE_WEAPON;
 	else if (pEntity->IsChicken())
@@ -78,3 +92,4 @@ void CacheEnt::onRemoveEntity(CEntityInstance* pInst, CBaseHandle handle) {
 		}
 	}
 }
+

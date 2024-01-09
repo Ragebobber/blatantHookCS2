@@ -30,6 +30,9 @@
 #include "cacheent.h"
 #include "CSGOInput.h"
 
+#include "CS2LocalPlayerController.h"
+
+#include "globals.h"
 
 #include "cheat.h"
 #include "hooks.h"

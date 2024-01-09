@@ -150,6 +150,7 @@
     <ClInclude Include="cheat.h" />
     <ClInclude Include="cheatImpl.h" />
     <ClInclude Include="classPointers.h" />
+    <ClInclude Include="CS2LocalPlayerController.h" />
     <ClInclude Include="CSchemaManager.h" />
     <ClInclude Include="CSchemaSystem.h" />
     <ClInclude Include="CSGOInput.h" />
@@ -157,6 +158,7 @@
     <ClInclude Include="C_BaseEntity.h" />
     <ClInclude Include="drawer.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="globals.h" />
     <ClInclude Include="helpers.h" />
     <ClInclude Include="hooks.h" />
     <ClInclude Include="imgui\imconfig.h" />
@@ -197,6 +199,7 @@
     <ClCompile Include="CEntityInstance.cpp" />
     <ClCompile Include="CGameEntitySystem.cpp" />
     <ClCompile Include="cheatImpl.cpp" />
+    <ClCompile Include="CS2LocalPlayerController.cpp" />
     <ClCompile Include="CSchemaManager.cpp" />
     <ClCompile Include="CSchemaSystem.cpp" />
     <ClCompile Include="CSGOInput.cpp" />
