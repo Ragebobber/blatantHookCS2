@@ -150,6 +150,7 @@
     <ClInclude Include="cheat.h" />
     <ClInclude Include="cheatImpl.h" />
     <ClInclude Include="classPointers.h" />
+    <ClInclude Include="config.h" />
     <ClInclude Include="CS2LocalPlayerController.h" />
     <ClInclude Include="CSchemaManager.h" />
     <ClInclude Include="CSchemaSystem.h" />
@@ -199,6 +200,7 @@
     <ClCompile Include="CEntityInstance.cpp" />
     <ClCompile Include="CGameEntitySystem.cpp" />
     <ClCompile Include="cheatImpl.cpp" />
+    <ClCompile Include="config.cpp" />
     <ClCompile Include="CS2LocalPlayerController.cpp" />
     <ClCompile Include="CSchemaManager.cpp" />
     <ClCompile Include="CSchemaSystem.cpp" />

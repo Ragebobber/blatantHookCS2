@@ -228,6 +228,9 @@
     <ClInclude Include="globals.h">
       <Filter>Файлы заголовков\sdk</Filter>
     </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>Файлы заголовков\cheat</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -352,6 +355,9 @@
     </ClCompile>
     <ClCompile Include="CS2LocalPlayerController.cpp">
       <Filter>Исходные файлы\valve\localClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="config.cpp">
+      <Filter>Исходные файлы\cheat</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

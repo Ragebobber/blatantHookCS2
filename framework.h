@@ -13,6 +13,8 @@
 #include <utility>
 #include <typeinfo>
 #include <iostream>
+#include <ShlObj.h>
+#include <string>
 
 #include <dxgi.h>
 #include <d3d11.h>
