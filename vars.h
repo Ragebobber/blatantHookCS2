@@ -5,6 +5,7 @@ struct Vars
 	struct
 	{
 		bool open = false;
+		int currentConfig = 0;
 	} menu;
 
 	struct {
