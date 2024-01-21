@@ -129,5 +129,6 @@ void Config::setUp()
 	setupValue(cheat::vars->visuals.bEnable, false, ("Visuals"), ("Enabled"));
 	setupValue(cheat::vars->visuals.bEsp, false, ("Visuals"), ("bEsp"));
 	setupValue(cheat::vars->visuals.bTeamEsp, false, ("Visuals"), ("bTeamEsp"));
-	
+	setupValue(cheat::vars->visuals.bHealth, false, ("Visuals"), ("bHealth"));
+
 }

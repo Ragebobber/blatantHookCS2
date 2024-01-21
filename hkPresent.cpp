@@ -1,6 +1,7 @@
 #include "sdk.h"
 
 static bool init = false;
+static bool toDraw = true;
 static ID3D11Device* pDevice = nullptr;
 static ID3D11DeviceContext* pContext = nullptr;
 static ID3D11RenderTargetView* mainRenderTargetView = nullptr;
@@ -44,18 +45,23 @@ HRESULT __stdcall hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval
 		init = true;
 
     }
+	if (toDraw) {
+		// Start the Dear ImGui frame
+		ImGui_ImplDX11_NewFrame();
+		ImGui_ImplWin32_NewFrame();
+		ImGui::NewFrame();
 
-	// Start the Dear ImGui frame
-	ImGui_ImplDX11_NewFrame();
-	ImGui_ImplWin32_NewFrame();
-	ImGui::NewFrame();
+		cheat::visuals->start(ImGui::GetBackgroundDrawList());
+		cheat::menu->draw();
+		// Rendering
+		ImGui::Render();
+		pContext->OMSetRenderTargets(1, &mainRenderTargetView, nullptr);
+		ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+		toDraw = false;
+	}
+	else
+		toDraw = true;
 	
-	cheat::visuals->start(ImGui::GetBackgroundDrawList());
-	cheat::menu->draw();
-	// Rendering
-	ImGui::Render();
-	pContext->OMSetRenderTargets(1, &mainRenderTargetView, nullptr);
-	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
 	return sdk::pointers->fpD3D11Present(pSwapChain, SyncInterval, Flags);
 }
