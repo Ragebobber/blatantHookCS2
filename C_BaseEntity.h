@@ -58,6 +58,6 @@ public:
 public:
 	SCHEMA(bool, m_bPawnIsAlive, "CCSPlayerController", "m_bPawnIsAlive");
 	SCHEMA(const char*, m_sSanitizedPlayerName, "CCSPlayerController", "m_sSanitizedPlayerName");
-
+	SCHEMA(uint32_t, m_iPawnHealth, "CCSPlayerController", "m_iPawnHealth");
 };
 

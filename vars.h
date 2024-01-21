@@ -12,5 +12,6 @@ struct Vars
 		bool bEnable = false;
 		bool bEsp = false;
 		bool bTeamEsp = false;
+		bool bHealth = false;
 	} visuals;
 };

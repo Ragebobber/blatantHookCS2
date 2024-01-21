@@ -60,4 +60,31 @@ void Visuals::drawPlayerEsp(CCSPlayerController* pPlayerController) {
 	const auto max = bbox.m_Maxs;
 
 	sdk::drawer->drawBox(min, max, cheat::vars->visuals.bTeamEsp && isFriend ? IM_COL32(0, 255, 0, 255) : IM_COL32(255, 0, 0, 255));
+
+	if (cheat::vars->visuals.bHealth) {
+		const auto health = pawn->m_iHealth();
+		const auto clampedHealth = (health < 100) ? health : 100;
+		const ImVec2 barMin = min - ImVec2{ 5, 0 };
+		const ImVec2 barMax = ImVec2{ min.x - 2, max.y };
+		const float green = clampedHealth * 2.55f;
+		const float greenClamped = (green <= 255.f) ? green : 255.f;
+		const float red = (510 - green <= 255.f) ? 510 - green : 255.f;
+		const float height = ((barMax.y - barMin.y) * clampedHealth) / 100.f;
+
+		drawList->AddRectFilled(
+				barMin - ImVec2{ 0, 1 }, barMax + ImVec2{ 0, 1 }, IM_COL32(0, 0, 0, 255));
+
+		char heathString[10] = ""; // 4294967296 is the maximum for Uint32, so 10 characters it is
+		sprintf_s(heathString, "%d HP", (long)clampedHealth);
+
+		if (clampedHealth > 0) {
+			const float yPos = barMax.y - (1.f > height ? 1.f : height);
+			drawList->AddRectFilled(
+				ImVec2{ barMin.x + 1, yPos }, ImVec2{ barMax.x - 1, barMax.y },
+				IM_COL32(red, greenClamped, 0, 255));
+			drawList->AddText(ImVec2{ barMax.x - 20.f,  barMax.y }, IM_COL32(255, 255, 255, 255), (const char*)heathString);
+		}
+	}
+
+
 }
